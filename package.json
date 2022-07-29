@@ -1,0 +1,32 @@
+{
+  "name": "dk-conditional-aggregate-webpack-plugin",
+  "author": "Dmitry Kazakov",
+  "license": "MIT",
+  "version": "1.0.1",
+  "description": "Delays webpack aggregateTimeout triggered watch-build until some custom condition meets",
+  "repository": "https://github.com/dkazakov8/dk-conditional-aggregate-webpack-plugin.git",
+  "scripts": {
+    "upd": "rm -rf ./node_modules&&pnpm i --prefer-offline",
+    "analyze:js": "eslint --ignore-path .formatignore --ext \".js,.ts,.tsx\" ./",
+    "format:js": "eslint --ignore-path .formatignore --ext \".js,.ts,.tsx\" --fix",
+    "build": "rm -rf ./dist&&tsc --project tsconfig-compile.json",
+    "check-types": "tsc",
+    "prepublishOnly": "yarn build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "set -e&&lint-staged"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "15.14.9",
+    "dk-eslint-config": "2.0.2",
+    "husky": "4.3.8",
+    "lint-staged": "12.1.7",
+    "typescript": "4.6.3",
+    "webpack": "5.72.0"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts"
+}
